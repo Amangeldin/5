@@ -1,0 +1,30 @@
+package com.lenovo;
+
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Потоктын саны k = ");int k = input.nextInt();
+        ArrayList<Thread> threads = new ArrayList<>(k);
+        for (int i = 0; i <k ; i++) {
+            threads.add(new Thread(new TestThread()));
+        }
+
+        for (int i = 0; i <k ; i++) {
+            threads.get(i).start();
+        }
+    }
+}
+class TestThread implements Runnable{
+    @Override
+    public void run() {
+        for (int i = 0; i <=100 ; i++) {
+            System.out.println(Thread.currentThread().getName() + "; i = " + i);
+            try {
+                Thread.sleep(10);
+            }catch (Exception e){
+                e.printStackTrace();
+            }} }}
