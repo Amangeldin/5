@@ -1,0 +1,23 @@
+package com.lenovo;
+
+public class Main {
+
+    public static void main(String[] args) {
+        TestThread testThread_1 = new TestThread();
+        TestThread testThread_2 = new TestThread();
+        Thread thread1 = new Thread(testThread_1);
+        Thread thread2 = new Thread(testThread_2);
+        thread1.start();
+        thread2.start();
+    }
+}
+class TestThread implements Runnable{
+    @Override
+    public void run() {
+        for (int i = 0; i <=100 ; i++) {
+            System.out.println(Thread.currentThread().getName() + "; Итерация = " + i);
+            try {
+                Thread.sleep(20);
+            }catch (Exception e){
+                e.printStackTrace();
+            }}}}
